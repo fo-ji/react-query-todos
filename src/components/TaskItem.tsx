@@ -10,7 +10,7 @@ interface Props {
   task: Task
 }
 
-export const TaskItem: VFC<Props> = memo((props) => {
+const TaskItem: VFC<Props> = (props) => {
   const { task } = props
   const dispatch = useAppDispatch()
   const { deleteTaskMutation } = useMutateTask()
@@ -52,4 +52,6 @@ export const TaskItem: VFC<Props> = memo((props) => {
       </div>
     </li>
   )
-})
+}
+
+export const TaskItemMemo = memo(TaskItem)

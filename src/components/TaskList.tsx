@@ -1,9 +1,9 @@
 import { memo, VFC } from 'react'
 
 import { useQueryTasks } from '../hooks/useQueryTasks'
-import { TaskItem } from './TaskItem'
+import { TaskItemMemo } from './TaskItem'
 
-export const TaskList: VFC = memo(() => {
+const TaskList: VFC = () => {
   const { data, status } = useQueryTasks()
 
   if (status === 'loading') return <div>{'Loading...'}</div>
@@ -15,9 +15,11 @@ export const TaskList: VFC = memo(() => {
     <div>
       <ul>
         {data?.map((task) => (
-          <TaskItem key={task.id} task={task} />
+          <TaskItemMemo key={task.id} task={task} />
         ))}
       </ul>
     </div>
   )
-})
+}
+
+export const TaskListMemo = memo(TaskList)
