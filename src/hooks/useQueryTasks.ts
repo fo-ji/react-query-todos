@@ -14,5 +14,6 @@ export const useQueryTasks = () => {
     queryKey: 'tasks',
     queryFn: getTasks,
     staleTime: 0,
+    // refetchInterval: 5000 // 設定した秒数おきにサーバーからデータをfetchしてくる
   })
 }
